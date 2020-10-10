@@ -41,6 +41,7 @@ function fetchBreeds() {
         .then(function(json) {
           breeds = Object.keys(json.message)
           breeds.forEach(breed => addBreed(breed))
+          filterBreeds()
         })
       }
     
@@ -58,12 +59,30 @@ function fetchBreeds() {
 
       function filterBreeds() {
           let dropdown = document.querySelector('#breed-dropdown')
-                
+          let filteredDogs = document.getElementById('dog-breeds')
+
+          startsWithA = breeds.filter((breed) => breed.startsWith('a'))
+          startsWithB = breeds.filter((breed) => breed.startsWith('b'))
+          startsWithC = breeds.filter((breed) => breed.startsWith('c'))
+          startsWithD = breeds.filter((breed) => breed.startsWith('d'))
+             
             dropdown.addEventListener('change', event => {
-            if (event.value === "a"){
-                console.log("A")
-            } else if (event.value === "b"){
-                console.log("B")
+            if (event.target.value === 'a'){
+                filteredDogs.innerHTML = ""
+                startsWithA.forEach(breed => addBreed(breed))
+            } else if (event.target.value === 'b'){
+                filteredDogs.innerHTML = ""
+                startsWithB.forEach(breed => addBreed(breed))
+            } else if (event.target.value === 'c'){
+                filteredDogs.innerHTML = ""
+                startsWithC.forEach(breed => addBreed(breed))
+            } else if (event.target.value === 'd'){
+                filteredDogs.innerHTML = ""
+                startsWithD.forEach(breed => addBreed(breed))
             }
       })
     }
+
+    
+
+   
