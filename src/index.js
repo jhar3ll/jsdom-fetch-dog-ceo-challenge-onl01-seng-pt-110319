@@ -53,9 +53,24 @@ function fetchBreeds() {
         newBreed.addEventListener('click', changeColor)
       }
       
+      /* 
+      Once all of the breeds are rendered in the `<ul>`, add JavaScript so that the
+        font color of a particular `<li>` changes _on click_. This can be a color of
+        your choosing.
+
+        When the user clicks any of the dog breed list items, the color the text should
+       change.
+        */
+
       function changeColor(event) {
         event.target.style.color = 'green';
       }
+
+      /* 
+        Once we are able to load _all_ of the dog breeds onto the page, add JavaScript
+        so that the user can filter breeds that start with a particular letter using a
+        dropdown.
+        */
 
       function filterBreeds() {
           let dropdown = document.querySelector('#breed-dropdown')
